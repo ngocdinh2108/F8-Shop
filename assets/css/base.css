@@ -1,0 +1,258 @@
+:root{
+    --primary-color: #ee4d2d;
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --border-color: #dbdbdb;
+    --star-gold-color: #ffce3e;
+
+    --header-height: 120px;
+    --header-navbar-height: 40px;
+    --header-with-search-height: calc(var(--header-height) - var(--header-navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Responsive */
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+/* Test */
+.grid__column-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3333%;
+}
+
+/* Animation */
+@keyframes showUp {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes headerNotifyGrowth {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-From));
+    }
+    to {
+        transform: scale(var(--growth-To));
+    }
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    animation: showUp linear 0.2s;
+    z-index: 20;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    --growth-From: 0.7;
+    --growth-To: 1;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    animation: growth ease-in 0.2s;
+}
+
+/* Button Style */
+
+.btn {
+    min-width: 124px;
+    height: 36px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    font-size: 1.3rem;
+    outline: none;
+    cursor: pointer;
+    color: var(--black-color);
+}
+
+.btn.btn--normal:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn.btn--size-s {
+    height: 30px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 208px;
+}
+
+/* Selection */
+
+.select-input {
+    min-width: 200px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.select-input::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100%;
+    height: 30px;
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__list {
+    position: absolute;
+    top: 78%;
+    right: 0;
+    background-color: var(--white-color);
+    list-style: none;
+    width: 100%;
+    padding: 0 0 16px 0;
+    border-radius: 2px;
+    display: none;
+}
+
+.select-input__item {
+    font-size: 1.3rem;
+}
+
+.select-input__item-link {
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 18px 12px 0 12px;
+}
+
+.select-input__item-link:hover {
+    color: var(--primary-color);
+}
+
+.select-input__label {
+    font-size: 1.3rem;
+}
+
+.select-input__icon {
+    font-size: 1.3rem;
+    color: rgb(131, 131, 131);
+}
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 1.6rem;
+    justify-content: center;
+    font-weight: 400;
+}
+
+.pagination-item {
+    margin: 0 8px;
+}
+
+.pagination-item--active .pagination-item__link{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item--active .pagination-item__link:hover{
+    background-color: #ed5c3f;
+}
+
+.pagination-item__link {
+    /* display: block; */
+    text-decoration: none;
+    font-style: normal;
+    color: #939393;
+    min-width: 40px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-item__icon {
+    font-style: normal;
+}
+
